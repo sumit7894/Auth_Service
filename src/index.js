@@ -5,12 +5,17 @@ const apiRoutes = require('./routes/index');
 
 
 const app = express();
+// const UserRepositroy = require('./repository/user-repository');
 const prepareAndStartServer=()=>{
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
     app.use('/api',apiRoutes);
-    app.listen(PORT,()=>{
+    // const repo = new UserRepositroy();
+    
+    app.listen(PORT, async ()=>{
         console.log(`Server started on the port ${PORT}`);
+        // const response = await repo.getById(4);
+        // console.log(response);
     })
 }
 prepareAndStartServer();
