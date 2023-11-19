@@ -25,6 +25,7 @@ class UserService{
         }
     }
     verifyToken(token){
+        console.log("yupp here it is",token);
         try {
             const response = jwt.verify(token,JWT_KEY);
             return response;
@@ -59,6 +60,22 @@ class UserService{
             return newJWT;
         } catch (error) {
             console.log("Somthing went wrong in Sign In process")
+            throw error
+        }
+    }
+    async isAuthenticated(token){
+        try {
+            const response = this.verifyToken(token);
+            if(!response){
+                throw {error:'Invalid token'}
+            }
+            const user = this.userRepository.getById(response.id);
+            if(!user){
+                throw {error: 'No user with corresponding token exists'}
+            }
+            return user.id;
+        } catch (error) {
+            console.log("Somthing went wrong in isAuthenticated service layer");
             throw error
         }
     }
