@@ -20,8 +20,8 @@ const prepareAndStartServer=()=>{
         //     id:1
         // });
         // console.log("New token is",newToken);
-        const response = userService.verifyToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbmtldEBhZG1pbi5jb20iLCJpZCI6MSwiaWF0IjoxNzAwMzY1MzY3LCJleHAiOjE3MDAzNjg5Njd9.UxAe5-OXNQ-VR0T-nltrLD1asAPpkcG3dovxS69gYxs')
-        console.log(response);
+        // const response = userService.verifyToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbmtldEBhZG1pbi5jb20iLCJpZCI6MSwiaWF0IjoxNzAwMzY1MzY3LCJleHAiOjE3MDAzNjg5Njd9.UxAe5-OXNQ-VR0T-nltrLD1asAPpkcG3dovxS69gYxs')
+        // console.log(response);
     })
 }
 prepareAndStartServer();
