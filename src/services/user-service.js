@@ -25,7 +25,6 @@ class UserService{
         }
     }
     verifyToken(token){
-        console.log("yupp here it is",token);
         try {
             const response = jwt.verify(token,JWT_KEY);
             return response;
@@ -74,6 +73,14 @@ class UserService{
                 throw {error: 'No user with corresponding token exists'}
             }
             return user.id;
+        } catch (error) {
+            console.log("Somthing went wrong in isAuthenticated service layer");
+            throw error
+        }
+    }
+    isAdmin(userId){
+        try {
+            return this.userRepository.isAdmin(userId);
         } catch (error) {
             console.log("Somthing went wrong in isAuthenticated service layer");
             throw error
